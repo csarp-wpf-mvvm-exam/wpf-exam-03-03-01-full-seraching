@@ -15,10 +15,10 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
 {
     public partial class TeacherViewModel : BaseViewModelWithAsyncInitialization
     {
-        private readonly ITeacherService? _tService;
+        private readonly ITeacherService? _teacherService;
 
         [ObservableProperty]
-        private ObservableCollection<Teacher> _teacher = new();
+        private ObservableCollection<Teacher> _teachers = new();
 
         [ObservableProperty]
         private Teacher _selectedTeacher;
@@ -41,7 +41,7 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
         public TeacherViewModel(ITeacherService? studentService)
         {
             SelectedTeacher = new Teacher();
-            _tService = studentService;
+            _teacherService = studentService;
         }
 
         public async override Task InitializeAsync()
@@ -52,13 +52,13 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
         [RelayCommand]
         public async Task DoSave(Teacher newStudent)
         {
-            if (_tService is not null)
+            if (_teacherService is not null)
             {
                 ControllerResponse result = new();
                 if (newStudent.HasId)
-                    result = await _tService.UpdateAsync(newStudent);
+                    result = await _teacherService.UpdateAsync(newStudent);
                 else
-                    result = await _tService.InsertAsync(newStudent);
+                    result = await _teacherService.InsertAsync(newStudent);
 
                 if (!result.HasError)
                 {
@@ -70,9 +70,9 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
         [RelayCommand]
         public async Task DoRemove(Teacher studentToDelete)
         {
-            if (_tService is not null)
+            if (_teacherService is not null)
             {
-                ControllerResponse result = await _tService.DeleteAsync(studentToDelete.Id);
+                ControllerResponse result = await _teacherService.DeleteAsync(studentToDelete.Id);
                 if (result.IsSuccess)
                 {
                     await UpdateView();
@@ -82,9 +82,9 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
 
         private async Task UpdateView()
         {
-            if (_tService is not null)
+            if (_teacherService is not null)
             {
-                List<Teacher> students = await _tService.SelectAllTeacher();
+                List<Teacher> students = await _teacherService.SelectAllTeacher();
                 Teacher = new ObservableCollection<Teacher>(students);
             }
         }

@@ -15,10 +15,10 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
 {
     public partial class ParentViewModel : BaseViewModelWithAsyncInitialization
     {
-        private readonly IParentService? _tService;
+        private readonly IParentService? _parentService;
 
         [ObservableProperty]
-        private ObservableCollection<Parent> _parent = new();
+        private ObservableCollection<Parent> _parents = new();
 
         [ObservableProperty]
         private Parent _selectedParent;
@@ -41,7 +41,7 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
         public ParentViewModel(IParentService? studentService)
         {
             SelectedParent = new Parent();
-            _tService = studentService;
+            _parentService = studentService;
         }
 
         public async override Task InitializeAsync()
@@ -52,13 +52,13 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
         [RelayCommand]
         public async Task DoSave(Parent newStudent)
         {
-            if (_tService is not null)
+            if (_parentService is not null)
             {
                 ControllerResponse result = new();
                 if (newStudent.HasId)
-                    result = await _tService.UpdateAsync(newStudent);
+                    result = await _parentService.UpdateAsync(newStudent);
                 else
-                    result = await _tService.InsertAsync(newStudent);
+                    result = await _parentService.InsertAsync(newStudent);
 
                 if (!result.HasError)
                 {
@@ -70,9 +70,9 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
         [RelayCommand]
         public async Task DoRemove(Parent studentToDelete)
         {
-            if (_tService is not null)
+            if (_parentService is not null)
             {
-                ControllerResponse result = await _tService.DeleteAsync(studentToDelete.Id);
+                ControllerResponse result = await _parentService.DeleteAsync(studentToDelete.Id);
                 if (result.IsSuccess)
                 {
                     await UpdateView();
@@ -82,9 +82,9 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
 
         private async Task UpdateView()
         {
-            if (_tService is not null)
+            if (_parentService is not null)
             {
-                List<Parent> students = await _tService.SelectAllParent();
+                List<Parent> students = await _parentService.SelectAllParent();
                 Parent = new ObservableCollection<Parent>(students);
             }
         }
