@@ -71,6 +71,11 @@
             <RadioButton GroupName="schoolclass" Margin="2 4 2 2">b  osztály</RadioButton>
             <RadioButton GroupName="schoolclass" Margin="2 4 2 2">c  osztály</RadioButton>
         </StackPanel>
+        <ComboBox Grid.Row="6" Grid.Column="1" Margin="2 4 2 4"
+                  SelectedItem="{Binding SelectedStudent.EducationLevel}"
+                  ItemsSource="{Binding EducationLevels}"
+         >
+        </ComboBox>
         <ListBox Grid.Row="8"
           Grid.ColumnSpan="2" 
           Margin="10 2 10 10"

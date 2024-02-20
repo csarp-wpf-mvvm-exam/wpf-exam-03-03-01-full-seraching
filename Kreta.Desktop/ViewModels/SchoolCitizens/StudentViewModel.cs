@@ -19,26 +19,19 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
         private ObservableCollection<Student> _students = new();
 
         [ObservableProperty]
+        private ObservableCollection<string> _educationLevels = new ObservableCollection<string>(new EducationLevel().EducationLevels);
+
+        [ObservableProperty]
         private Student _selectedStudent;
-
-        private string _selectedEducationLevel = string.Empty;
-        public string SelectedEducationLevel
-        {
-            get => _selectedEducationLevel;
-            set
-            {
-                SetProperty(ref _selectedEducationLevel, value);
-            }
-        }
-
+      
         public StudentViewModel()
         {
-            SelectedStudent = new Student();
+            _selectedStudent = new Student();
         }
 
         public StudentViewModel(IStudentService? studentService)
         {
-            SelectedStudent = new Student();
+            _selectedStudent = new Student();
             _studentService = studentService;
         }
 
@@ -78,6 +71,12 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
             }
         }
 
+        [RelayCommand]
+        void DoNewStudent()
+        {
+            SelectedStudent = new Student();
+        }
+
         private async Task UpdateView()
         {
             if (_studentService is not null)
@@ -85,12 +84,6 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
                 List<Student> students = await _studentService.SelectAllStudent();
                 Students = new ObservableCollection<Student>(students);
             }
-        }
-
-        [RelayCommand]
-        void DoNewStudent()
-        {
-            SelectedStudent = new Student();
         }
 
     }

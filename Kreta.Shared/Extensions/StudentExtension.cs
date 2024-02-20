@@ -13,6 +13,9 @@ namespace Kreta.Shared.Extensions
                 FirstName = student.FirstName,
                 LastName = student.LastName,
                 BirthDay = student.BirthDay,
+                EducationLevel = student.EducationLevel,
+                SchoolYear = student.SchoolYear,
+                SchoolClass = student.SchoolClass,
             };
         }
 
@@ -24,6 +27,9 @@ namespace Kreta.Shared.Extensions
                 FirstName = studentdto.FirstName,
                 LastName = studentdto.LastName,
                 BirthDay = studentdto.BirthDay,
+                EducationLevel = studentdto.EducationLevel,
+                SchoolClass = studentdto.SchoolClass,  
+                SchoolYear = studentdto.SchoolYear,
             };
         }
     }
