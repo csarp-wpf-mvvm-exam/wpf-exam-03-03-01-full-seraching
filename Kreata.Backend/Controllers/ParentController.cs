@@ -91,7 +91,7 @@ namespace Kreata.Backend.Controllers
         }
 
         [HttpPost()]
-        public async Task<IActionResult> InsertTeacherAsync(ParentDto parent)
+        public async Task<IActionResult> InsertParentAsync(ParentDto parent)
         {
             ControllerResponse response = new();
             if (_parentRepo is not null)
