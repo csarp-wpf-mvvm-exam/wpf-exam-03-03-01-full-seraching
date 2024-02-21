@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Kreta.HttpService.Service;
-using Kreta.Shared.Extensions;
 using Kreta.Shared.Models;
 using Kreta.Shared.Responses;
 using Kreta.Desktop.ViewModels.Base;
@@ -11,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Kreta.Desktop.ViewModels.SchoolCitizens
 {
-    public partial class StudentViewModel : BaseViewModelWithAsyncInitialization
+    public partial class StudentViewModel : BaseViewModel
     {        
         private readonly IStudentService? _studentService;
 
@@ -41,7 +40,7 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
         }
 
         [RelayCommand]
-        public async Task DoSave(Student newStudent)
+        private async Task DoSave(Student newStudent)
         {
             if (_studentService is not null)
             {
@@ -59,7 +58,7 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
         }
 
         [RelayCommand]
-        public async Task DoRemove(Student studentToDelete)
+        private async Task DoRemove(Student studentToDelete)
         {
             if (_studentService is not null)
             {
@@ -72,7 +71,7 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
         }
 
         [RelayCommand]
-        void DoNewStudent()
+        private void DoNewStudent()
         {
             SelectedStudent = new Student();
         }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Kreta.Desktop.ViewModels.SchoolCitizens
 {
-    public partial class ParentViewModel : BaseViewModelWithAsyncInitialization
+    public partial class ParentViewModel : BaseViewModel
     {
         private readonly IParentService? _parentService;
 
