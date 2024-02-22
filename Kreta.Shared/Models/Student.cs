@@ -46,7 +46,8 @@ namespace Kreta.Shared.Models
 
         public override string ToString()
         {
-            return $"{HungarianName} ({SchoolYear}.{SchoolClass}) - ({String.Format("{0:yyyy.MM.dd.}", BirthDay)}) ({EducationLevel})";
+            string woman = IsWoman ? "nő" : "férfi";
+            return $"{HungarianName} {woman} ({SchoolYear}.{SchoolClass}) - ({String.Format("{0:yyyy.MM.dd.}", BirthDay)}) ({EducationLevel})";
         }
     }
 }

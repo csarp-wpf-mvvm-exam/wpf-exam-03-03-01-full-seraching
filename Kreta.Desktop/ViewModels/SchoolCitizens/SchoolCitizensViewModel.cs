@@ -48,7 +48,6 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
         public async Task ShowTeacherView()
         {
             await _teacherViewModel.InitializeAsync();
-
             CurrentChildViewModel = _teacherViewModel;
         }
 
@@ -56,7 +55,6 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
         public async Task ShowParentView()
         {
             await _parentViewModel.InitializeAsync();
-
             CurrentChildViewModel = _parentViewModel;
         }
     }
