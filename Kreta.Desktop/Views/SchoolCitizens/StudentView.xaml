@@ -66,6 +66,7 @@
         <TextBox Grid.Row="1" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="{Binding SelectedStudent.LastName}"></TextBox>
         <TextBox Grid.Row="2" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="{Binding SelectedStudent.FirstName}"></TextBox>
         <DatePicker Grid.Row="3" Grid.Column="1" Margin="2 2 2 2" SelectedDate="{Binding SelectedStudent.BirthDay}"></DatePicker>
+        <xwpftk:IntegerUpDown HorizontalAlignment="Left" MinWidth="40" Grid.Row="4" Grid.Column="1" Margin="2 2 100 2" Minimum="9" Maximum="14" Value="{Binding SelectedStudent.SchoolYear}"></xwpftk:IntegerUpDown>
         <StackPanel Grid.Row="5" Grid.Column="1">
             <RadioButton GroupName="schoolclass" Margin="2 4 2 2">a  osztály</RadioButton>
             <RadioButton GroupName="schoolclass" Margin="2 4 2 2">b  osztály</RadioButton>
@@ -77,10 +78,10 @@
          >
         </ComboBox>
         <ListBox Grid.Row="8"
-          Grid.ColumnSpan="2" 
-          Margin="10 2 10 10"
-          ItemsSource="{Binding Students}"
-          SelectedItem="{Binding SelectedStudent}"
+              Grid.ColumnSpan="2" 
+              Margin="10 2 10 10"
+              ItemsSource="{Binding Students}"
+              SelectedItem="{Binding SelectedStudent}"
         />
     </Grid>
 </UserControl>

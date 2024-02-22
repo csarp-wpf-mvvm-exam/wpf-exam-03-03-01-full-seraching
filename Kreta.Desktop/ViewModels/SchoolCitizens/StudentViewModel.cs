@@ -18,7 +18,7 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
         private ObservableCollection<Student> _students = new();
 
         [ObservableProperty]
-        private ObservableCollection<string> _educationLevels = new ObservableCollection<string>(new EducationLevel().EducationLevels);
+        private ObservableCollection<string> _educationLevels = new(new EducationLevel().EducationLevels);
 
         [ObservableProperty]
         private Student _selectedStudent;
@@ -44,7 +44,7 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
         {
             if (_studentService is not null)
             {
-                ControllerResponse result = new();
+                ControllerResponse result;
                 if (newStudent.HasId)
                     result = await _studentService.UpdateAsync(newStudent);
                 else

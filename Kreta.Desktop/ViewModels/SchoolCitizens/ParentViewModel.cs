@@ -41,7 +41,7 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
         {
             if (_parentService is not null)
             {
-                ControllerResponse result = new();
+                ControllerResponse result;
                 if (newParent.HasId)
                     result = await _parentService.UpdateAsync(newParent);
                 else

@@ -1,6 +1,7 @@
 ﻿using Kreta.Shared.Enums;
 using Kreta.Shared.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
 
 namespace Kreata.Backend.Context
 {
@@ -8,7 +9,7 @@ namespace Kreata.Backend.Context
     {
         public static void Seed(this ModelBuilder modelBuilder)
         {
-            List<Student> students = new List<Student>
+            List<Student> students = new()
             {
                 new Student
                 {
@@ -23,8 +24,8 @@ namespace Kreata.Backend.Context
                 new Student
                 {
                     Id=Guid.NewGuid(),
-                    FirstName="Szonja",
-                    LastName="Stréber",
+                    FirstName="Nóra",
+                    LastName="Nagy",
                     BirthDay=new DateTime(2021,4,4),
                     SchoolYear=10,
                     SchoolClass = SchoolClassType.ClassB,
@@ -34,7 +35,7 @@ namespace Kreata.Backend.Context
                 {
                     Id=Guid.NewGuid(),
                     FirstName="Vas",
-                    LastName="Alex",
+                    LastName="Valér",
                     BirthDay=new DateTime(2022,7,7),
                     SchoolYear=10,
                     SchoolClass = SchoolClassType.ClassA,
@@ -53,23 +54,26 @@ namespace Kreata.Backend.Context
                 new Student
                 {
                     Id=Guid.NewGuid(),
-                    FirstName="Szakos",
-                    LastName="Szandra",
+                    FirstName="Magas",
+                    LastName="Milán",
                     BirthDay=new DateTime(2017,7,7),
                     SchoolYear=13,
                     SchoolClass = SchoolClassType.ClassB,
                     EducationLevel="szakképzés"
                 }
             };
-            List<Teacher> teachers = new List<Teacher>
+            List<Teacher> teachers = new()
             {
                 new Teacher
                 {
                     Id=Guid.NewGuid(),
                     FirstName="Martin",
                     LastName="Magyar",
-                    BirthDay=new DateTime(2000,10,10),                
+                    BirthDay=new DateTime(2000,10,10),
                     IsHeadTeacher=false,
+                    PlaceOfBirth="Miskolc",
+                    IsWoman=false,
+                    MathersName="Miskolci Mária"
                 },
                 new Teacher
                 {
@@ -78,6 +82,10 @@ namespace Kreata.Backend.Context
                     LastName="Metek",
                     BirthDay=new DateTime(2000,11,11),
                     IsHeadTeacher=true,
+                    PlaceOfBirth="Eger",
+                    IsWoman=true,
+                    MathersName="Egri Etelka"
+
                 },
                 new Teacher
                 {
@@ -86,6 +94,10 @@ namespace Kreata.Backend.Context
                     LastName="Földrajz",
                     BirthDay=new DateTime(2000,12,12),
                     IsHeadTeacher=true,
+                    PlaceOfBirth="Szabadka",
+                    IsWoman=false,
+                    MathersName="Szabadkai Szabina"
+
                 },
                 new Teacher
                 {
@@ -94,6 +106,9 @@ namespace Kreata.Backend.Context
                     LastName="Ének",
                     BirthDay=new DateTime(2000,1,1),
                     IsHeadTeacher=false,
+                    PlaceOfBirth="Baja",
+                    IsWoman=true,
+                    MathersName="Bajai Betti"
                 },
                 new Teacher
                 {
@@ -102,51 +117,77 @@ namespace Kreata.Backend.Context
                     LastName="Angol",
                     BirthDay=new DateTime(2000,3,3),
                     IsHeadTeacher=false,
+                    PlaceOfBirth="Kecskemét",
+                    IsWoman=false,
+                    MathersName="Kecskeméti Kati"
                 }
             };
-            List<Parent> parents = new List<Parent>
+            List<Parent> parents = new()
             {
                 new Parent
                 {
                     Id=Guid.NewGuid(),
-                    FirstName="László",
-                    LastName="Nagy",
-                    IsWooman=false,
+                    FirstName="Virág",
+                    LastName="Vas",
+                    IsWoman=true,
+                    BirthDay=new DateTime(1998,8,8),
+                    PlaceOfBirth="Szeged",
+                    MathersName="Érc Kitti",
                 },
                 new Parent
                 {
                     Id=Guid.NewGuid(),
                     FirstName="Petra",
                     LastName="Pénzes",
-                    IsWooman=true,
+                    IsWoman=true,
+                    BirthDay=new DateTime(1997,7,7),
+                    PlaceOfBirth="Kistelek",
+                    MathersName="Szegény Szandi",
+
                 },
                 new Parent
                 {
                     Id=Guid.NewGuid(),
                     FirstName="Ferenc",
                     LastName="Fukar",
-                    IsWooman=false,
+                    IsWoman=false,
+                    BirthDay=new DateTime(1995,5,5),
+                    PlaceOfBirth="Szeged",
+                    MathersName="Adakozó Andor",
+
                 },
                 new Parent
                 {
                     Id=Guid.NewGuid(),
                     FirstName="Fruzsi",
                     LastName="Fukar",
-                    IsWooman=true,
+                    IsWoman=true,
+                    BirthDay=new DateTime(1994,4,4),
+                    PlaceOfBirth="Makó",
+                    MathersName="Adó Anna",
+
                 },
                 new Parent
                 {
                     Id=Guid.NewGuid(),
                     FirstName="Hedvig",
                     LastName="Hosszú",
-                    IsWooman=true,
+                    IsWoman=true,
+                    BirthDay=new DateTime(1992,2,2),
+                    PlaceOfBirth="Szeged",
+                    MathersName="Alacsony Anikó",
+
                 },
                 new Parent
                 {
                     Id=Guid.NewGuid(),
                     FirstName="Milán",
                     LastName="Magas",
-                    IsWooman=false,
+                    IsWoman=false,
+                    BirthDay=new DateTime(1992,2,2),
+                    PlaceOfBirth="Deszk",
+                    MathersName="Alacsony Anikó",
+
                 }
             };
 

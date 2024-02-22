@@ -41,7 +41,7 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
         {
             if (_teacherService is not null)
             {
-                ControllerResponse result = new();
+                ControllerResponse result;
                 if (newTeacher.HasId)
                     result = await _teacherService.UpdateAsync(newTeacher);
                 else
@@ -67,6 +67,12 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
             }
         }
 
+        [RelayCommand]
+        private void DoNewStudent()
+        {
+            SelectedTeacher = new Teacher();
+        }
+
         private async Task UpdateView()
         {
             if (_teacherService is not null)
@@ -74,12 +80,6 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
                 List<Teacher> students = await _teacherService.SelectAllTeacher();
                 Teachers = new ObservableCollection<Teacher>(students);
             }
-        }
-
-        [RelayCommand]
-        private void DoNewStudent()
-        {
-            SelectedTeacher = new Teacher();
         }
 
     }

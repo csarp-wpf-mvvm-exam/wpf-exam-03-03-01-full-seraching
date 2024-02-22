@@ -12,7 +12,10 @@ namespace Kreta.Shared.Extensions
                 Id = parent.Id,
                 FirstName = parent.FirstName,
                 LastName = parent.LastName,
-                IsWooman = parent.IsWooman,
+                IsWoman = parent.IsWoman,
+                BirthDay = parent.BirthDay,
+                PlaceOfBirth = parent.PlaceOfBirth,
+                MathersName = parent.MathersName,
             };
         }
 
@@ -23,9 +26,11 @@ namespace Kreta.Shared.Extensions
                 Id = parentdto.Id,
                 FirstName = parentdto.FirstName,
                 LastName = parentdto.LastName,
-                IsWooman = parentdto.IsWooman
+                IsWoman = parentdto.IsWoman,
+                BirthDay= parentdto.BirthDay,
+                PlaceOfBirth= parentdto.PlaceOfBirth,
+                MathersName= parentdto.MathersName,
             };
         }
     }
-
 }
