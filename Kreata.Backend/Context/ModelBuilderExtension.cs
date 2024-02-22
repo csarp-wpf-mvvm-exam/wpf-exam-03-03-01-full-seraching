@@ -18,6 +18,7 @@ namespace Kreata.Backend.Context
                     LastName="Jegy",
                     IsWoman=false,
                     BirthDay=new DateTime(2022,10,10),
+                    PlaceOfBirth="Szeged",
                     SchoolYear=9,
                     SchoolClass = SchoolClassType.ClassA,
                     EducationLevel="érettségi"
@@ -29,6 +30,7 @@ namespace Kreata.Backend.Context
                     LastName="Nagy",
                     IsWoman=true,
                     BirthDay=new DateTime(2021,4,4),
+                    PlaceOfBirth="Kiskunhalas",
                     SchoolYear=10,
                     SchoolClass = SchoolClassType.ClassB,
                     EducationLevel="érettségi"
@@ -40,6 +42,7 @@ namespace Kreata.Backend.Context
                     LastName="Valér",
                     IsWoman=false,
                     BirthDay=new DateTime(2022,7,7),
+                    PlaceOfBirth="Makó",
                     SchoolYear=10,
                     SchoolClass = SchoolClassType.ClassA,
                     EducationLevel="érettségi"
@@ -49,6 +52,7 @@ namespace Kreata.Backend.Context
                     Id=Guid.NewGuid(),
                     FirstName="Kis",
                     LastName="Márta",
+                    PlaceOfBirth="Szabadka",
                     IsWoman=true,
                     BirthDay=new DateTime(2019,9,9),
                     SchoolYear=12,
@@ -62,6 +66,7 @@ namespace Kreata.Backend.Context
                     LastName="Milán",
                     IsWoman=false,
                     BirthDay=new DateTime(2017,7,7),
+                    PlaceOfBirth="Apátfalva",
                     SchoolYear=13,
                     SchoolClass = SchoolClassType.ClassB,
                     EducationLevel="szakképzés"
